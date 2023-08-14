@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "head.html" %}
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/usercard.css" rel="stylesheet">
+
+</head>
+
+<body>
+    {% include "header.html" %}
+
+    <div style="padding-top: 70px">
+        <section class="menu">
+            <div class="heading">
+                <h3><span>{{ typ }}</span> </h3>
+            </div>
+
+            <div class="heading">
+                <h3 style="padding-top: 8px">All Details</h3>
+            </div>
+            <div class="box-container">
+
+                {% for i in list %}
+                <div class="card1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="title fw-bold text-black" style="font-size: 22px">{{ i['name'] }}</p>
+                        </div>
+                        {# <div class="col-md-6">#}
+                            {# <p class="title">{{ i['type'] }}</p>#}
+                            {# </div>#}
+                    </div>
+
+                    <p class="title">Area:{{ i['type'] }}</p>
+                    <p class="title">Phone Number:{{ i['phone'] }}</p>
+                    <p class="title">Total Room:{{ i['room'] }}</p>
+                    <p class="title">Total Washroom:{{ i['washroom'] }}</p>
+                    <p class="title">Total Balcony:{{ i['balcony'] }}</p>
+                    <p class="title">Floor:{{ i['floor'] }}</p>
+                    <p class="title">Dimension:{{ i['dimension'] }}</p>
+                    <p class="title">Garadge:{{ i['garadge'] }}</p>
+                    <p class="title">Security:{{ i['security'] }}</p>
+                    <p class="title"><strong>Rent:{{ i['charge'] }}</strong></p>
+                    <p class="title" style="background-color: black;">
+                        <a style="text-decoration: none; color: white;" class="user">Call the owner directly. Address is hidden for security purpose</a>
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

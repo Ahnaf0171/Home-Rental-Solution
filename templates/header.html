@@ -1,0 +1,62 @@
+
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+        <div class="logo">
+            <h1><a href="/">To-let</a></h1>
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <i class="bi bi-list mobile-nav-toggle"></i>
+            <ul>
+                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                <li class="dropdown"><a href="#"><span>Property Area Wise</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/service/Dhanmondi/">Dhanmondi</a></li>
+                        <li><a href="/service/Banani/">Banani</a></li>
+                        <li><a href="/service/Uttora/">Uttora</a></li>
+                        <li><a href="/service/Banasree/">Banasree</a></li>
+                        <li><a href="/service/Rampura/">Rampura</a></li>
+                        <li><a href="/service/Gulshan/">Gulshan</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="/about/">About</a></li>
+                <li><a class="nav-link scrollto" href="/contact/">Contact</a></li>
+                {% if session["logged_in"] %}
+                <li class="dropdown"><a id="notification-icon" href="">
+                        <span id="show-page"><img src="/static/img/notification1.png" alt="Notification icon"></span>
+                        <span style="color: red"><sup><b>{{ lengt }}</b></sup></span>
+                    </a>
+                    {% if haveNoti %}
+                    <ul>
+                        {% for i in se %}
+                        <li style="align-content: flex-start">
+                            <button style="border: white; background-color: white"><a
+                                    href="{{ url_for('index', id=i['_id']) }}">New Offer arrived<br> check
+                                    you mail.<br> Offer send by {{ i['name'] }}</a>
+                            </button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+
+                <li class="dropdown"><a class="nav-link scrollto " href="#"><img height="30px" width="30px"
+                            src="/static/img/userprofile.png"><span> {{ session["name"] }}</span>
+                    </a>
+                    <ul>
+                        <li><a class="nav-link scrollto " href="/userprofile/">User Profile</a></li>
+                        <li><a class="nav-link scrollto " href="/logout/">Logout</a></li>
+                        <iframe id="content" src="" style="display:none"></iframe>
+                        {% else %}
+                        <li><a class="nav-link scrollto " href="/login/">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+
+    </div>
+</header>
